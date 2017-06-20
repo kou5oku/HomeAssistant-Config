@@ -1,0 +1,97 @@
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 326
+  unit_system: imperial
+  time_zone: America/Phoenix
+frontend:
+config:
+http:
+  api_password: !secret http_password
+  server_port: 8123
+  #ssl_certificate: /home/hass/.homeassistant/Kalicki.club.crt
+  #ssl_key: /home/hass/.homeassistant/Kalicki.club.key
+  trusted_networks: !secret trusted_networks
+  use_x_forwarded_for: True
+panel_iframe:
+  router:
+    title: 'Router'
+    url: !secret router_ip
+    icon: mdi:router-wireless
+  security:
+    title: 'Security'
+    url: !secret security_url
+    icon: mdi:security-home
+updater:
+discovery:
+conversation:
+history:
+logbook:
+sun:
+sensor:
+  platform: yr
+tts:
+  platform: google
+  cache: true
+  cache_dir: /tmp/tts
+  time_memory: 300
+zone:
+ - name: Work
+   latitude: !secret work_latitude
+   longitude: !secret work_longitude
+   radius: 2500
+   icon: mdi:ghost
+zwave:
+  usb_path: /dev/ttyACM0
+  autoheal: false
+
+########################################
+#
+#   Broadcom IR blaster
+#
+#########################################
+switch:
+  - platform: broadlink
+    host: !secret broadlink_ip
+    mac: '34:EA:34:B2:F0:5F'
+    timeout: 15
+    switches:
+      lightstrip:
+         friendly_name: "led strip"
+         command_on: 'JgCwAAABKJMTEhMRFRATExISExITEhMSFTUTNhM3FTUTNxI3EzcTNxMSFBAUERMTEhITEhM3FRATNhM3EzcTNhU2EjcUERU1FQAFGQABKUgTAAxNAAEmShIADE4AASZLEgAMTgABJksRAAxOAAEnShIADE4AASZLEgAMTQABJ0oSAAxOAAEmSxIADE4AASZKEgAMTgABJksSAAxOAAEmSxEADE4AASZLEgAMTgABJkoSAA0FAAAAAAAAAAA='
+         command_off: 'JgDgAAABJpURFBETFBESExISFRERFBEUEzYSOBI3FDYSOBI3FDYSOBM2EhMTEhMSFBETEhI3EhMTEhQ2EjcTNxI4EjcTExI3EwAFGwABKUgUAAxMAAEpSBUADE4AASpHFQAMSwABKkcVAAxLAAEpRxYADEoAASpHFQAMSwABJ0oSAAxNAAEpSBQADEwAASlIFQAMSgABKUgUAAxMAAEmSxIADE0AAShJFAAMTAABKkcVAAxKAAErRxYADEoAAShJFAAMSwABKEkTAAxNAAEmSxIADE4AASZLEQAMTgABKUgUAA0FAAAAAAAAAAA='
+      redstrip:
+         friendly_name: "red lights"
+         command_on: 'JgDoAAABKZISExQRFBEUERQQExITExMREjgUNhM2EzcUNhI3FTYTNhMSExITEhQ1EzcTEhQ2ExITNxM2EzcTEhEUEzYUEhM2EwAFGwABKEoTAAxNAAEoShMADE0AAShKEwAMTQABKEoSAAxOAAEoSRMADE0AAShKEgAMTgABJ0oTAAxNAAEqSBMADE0AASlIEwAMTQABKEkTAAxNAAEqRxQADEwAASpHFAAMTAABKEkTAAxNAAEoSRMADE0AAShJEwAMTQABKEkTAAxNAAEnShMADE0AAShJEwAMTgABKEkTAAxNAAEpSBQADQU='
+         command_off: 'JgDoAAABKZISExQRFBEUERQQExITExMREjgUNhM2EzcUNhI3FTYTNhMSExITEhQ1EzcTEhQ2ExITNxM2EzcTEhEUEzYUEhM2EwAFGwABKEoTAAxNAAEoShMADE0AAShKEwAMTQABKEoSAAxOAAEoSRMADE0AAShKEgAMTgABJ0oTAAxNAAEqSBMADE0AASlIEwAMTQABKEkTAAxNAAEqRxQADEwAASpHFAAMTAABKEkTAAxNAAEoSRMADE0AAShJEwAMTQABKEkTAAxNAAEnShMADE0AAShJEwAMTgABKEkTAAxNAAEpSBQADQU='
+      pinkstrip:
+         friendly_name: "pink lights"
+         command_on: 'JgBgAAABKJMTExISExISExMSFBESExMRFDcSNxM2FDcSNxM3EzcSNxMTEjcSExM3EjcTEhMSExITNxMRFDcSEhMSEzcUNhI3EwAFGwABJ0sTAAxMAAEoShIADE0AAShKEwANBQAAAAAAAAAA='
+         command_off: 'JgBgAAABKJMTExISExISExMSFBESExMRFDcSNxM2FDcSNxM3EzcSNxMTEjcSExM3EjcTEhMSExITNxMRFDcSEhMSEzcUNhI3EwAFGwABJ0sTAAxMAAEoShIADE0AAShKEwANBQAAAAAAAAAA='
+      greenstrip:
+         friendly_name: "green lights"
+         command_on: 'JgCYAAABKJQTEhISFBETExISExIUERMSEzcTNhQ2EzcTNxI3EzcTNxM2FBISExE4EzcTEhI3ExMSExI3EzcTEhITEzYTExM2EwAFGwABKEoTAAxMAAEoShIADE4AASdLEgAMTQABKEoTAAxMAAEpSRIADE0AASdKEwAMTAABKEoSAAxNAAEnShQADEsAAShKEwAMTAABJ0oSAA0F='
+         command_off: 'JgCYAAABKJQTEhISFBETExISExIUERMSEzcTNhQ2EzcTNxI3EzcTNxM2FBISExE4EzcTEhI3ExMSExI3EzcTEhITEzYTExM2EwAFGwABKEoTAAxMAAEoShIADE4AASdLEgAMTQABKEoTAAxMAAEpSRIADE0AASdKEwAMTAABKEoSAAxNAAEnShQADEsAAShKEwAMTAABJ0oSAA0F='
+      bluestrip:
+         friendly_name: "blue lights"
+         command_on: 'JgCYAAABJ5QSExMSEhMSEhMSExMQFBMSEzcROBM2FDcSNxM3EjgSNxM3ExISOBITERURExE4ExISFBA4ExMROBM3EjgTEhE4EwAFGwABJkwSAAxNAAEmTBAADE4AASdKEgAMTgABJUwRAAxNAAEoSRMADEwAASdLEgAMTQABJ0oSAAxNAAEnShMADE0AASdJEwAMTQABJksSAA0F='
+         command_off: 'JgCYAAABJ5QSExMSEhMSEhMSExMQFBMSEzcROBM2FDcSNxM3EjgSNxM3ExISOBITERURExE4ExISFBA4ExMROBM3EjgTEhE4EwAFGwABJkwSAAxNAAEmTBAADE4AASdKEgAMTgABJUwRAAxNAAEoSRMADEwAASdLEgAMTQABJ0oSAAxNAAEnShMADE0AASdJEwAMTQABJksSAA0F='
+      kitchentv:
+         friendly_name: "kitchen tv"
+         command_on: 'JgCIAAABJZQTERMTEjYTEhMSExITERQREzYUNhISFDYTNhM2FDYTNhMSEhITEhQ1ExITEhMSEhIUNRQ2EzYTEhM2FDUUNhM2FAAFHAABJUsSAAxEAAElSxIADEQAASVKEwAMRAABJUoTAAxEAAElShMADEQAASVKFAAMQwABJUoTAAxEAAElShQADQU='
+         command_off: 'JgCIAAABJZQTERMTEjYTEhMSExITERQREzYUNhISFDYTNhM2FDYTNhMSEhITEhQ1ExITEhMSEhIUNRQ2EzYTEhM2FDUUNhM2FAAFHAABJUsSAAxEAAElSxIADEQAASVKEwAMRAABJUoTAAxEAAElShMADEQAASVKFAAMQwABJUoTAAxEAAElShQADQU='
+      fadeseven:
+         friendly_name: "fade colors"
+         command_on:  'JgCKAAABI5YRFRETEhMRExITExQQFBETFDcSNhI4EjkROBU1EjcRORIUERQREhI4FAUdFRATExMROBI5EzcTERI3EwgHKBM3EjgVAAUZAAEnSxEADE4AASZMEgAMTwABKEsRAAxOAAEmSxIADE8AASdKEQAMTQABJ0sSAAxNAAEnShEADE8AASVNEAANBQAAAAAAAAAAAAAAAAAA='
+         command_off:  'JgCKAAABI5YRFRETEhMRExITExQQFBETFDcSNhI4EjkROBU1EjcRORIUERQREhI4FAUdFRATExMROBI5EzcTERI3EwgHKBM3EjgVAAUZAAEnSxEADE4AASZMEgAMTwABKEsRAAxOAAEmSxIADE8AASdKEQAMTQABJ0sSAAxNAAEnShEADE8AASVNEAANBQAAAAAAAAAAAAAAAAAA='
+      whitestrip:
+         friendly_name: "white lights"
+         command_on: 'JgBoAAABKJMTEhMSExISExMRFRERFBISFDYTNxI3FjUSNxQ2EzcSNxMSFBETNxMRFBISExI3FBETNxI3ExITNxM3EjgSExI3EwAFGwABKEkTAAxMAAEoShIADE0AASdKEwAMTAABJ0oTAA0F='
+         command_off: 'JgBoAAABKJMTEhMSExISExMRFRERFBISFDYTNxI3FjUSNxQ2EzcSNxMSFBETNxMRFBISExI3FBETNxI3ExITNxM3EjgSExI3EwAFGwABKEkTAAxMAAEoShIADE0AASdKEwAMTAABJ0oTAA0F='
+        
+     
+
+
+group: !include groups.yaml
+automation: !include automations.yaml

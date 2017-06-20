@@ -1,0 +1,508 @@
+homeassistant:
+
+  name: Home
+  latitude: 33.491511
+  longitude: -112.331404
+  elevation: 318
+  unit_system: imperial
+  time_zone: America/Phoenix
+  customize:
+     sensor.garage_alarm_level_13_1:
+          hidden: true
+     sensor.garage_burglar_13_10:
+          hidden: true
+     sensor.garage_alarm_type_13_0:
+          hidden: true
+     sensor.garage_sourcenodeid_13_2:
+          hidden: true
+     light.linear_lb60z1_dimmable_led_light_bulb_level_18_0:
+          friendly_name: Living
+     light.linear_lb60z1_dimmable_led_light_bulb_level_15_0:
+          friendly_name: Laundry
+     light.linear_lb60z1_dimmable_led_light_bulb_level_10_0:
+          friendly_name: Bedroom Lamp
+          icon: mdi:lightbulb
+     light.linear_lb60z1_dimmable_led_light_bulb_level_14_0:
+          friendly_name: Kitchen
+          icon: mdi:lightbulb
+     light.linear_lb60z1_dimmable_led_light_bulb_level_8_0:
+          friendly_name: Dad Office
+          icon: mdi:lightbulb
+     binary_sensor.garage_sensor_13_0:
+          friendly_name: Garage Exit
+          icon: mdi:glassdoor
+     sensor.exchange_rate_1_btc:
+          friendly_name: btc
+          icon: mdi:currency-btc
+     sensor.dad_work:
+          icon: mdi:city
+     sensor.weather_temperature:
+          icon: mdi:sunglasses
+
+tts:
+  - platform: google
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+
+#
+#
+#  SCENES
+#
+#
+scene:
+  - name: kitchen normal
+    entities:
+        light.linear_lb60z1_dimmable_led_light_bulb_level_16_0:
+            state: on
+            transition: 2
+            brightness: 255       
+        light.linear_lb60z1_dimmable_led_light_bulb_level_15_0:
+            state: on
+            transition: 2
+            brightness: 255
+        light.linear_lb60z1_dimmable_led_light_bulb_level_10_0:
+            state: on
+            transition: 2
+            brightness: 255
+  - name: kitchen dim
+    entities:
+        light.linear_lb60z1_dimmable_led_light_bulb_level_10_0:
+            state: on
+            transition: 2
+            brightness: 15
+        light.linear_lb60z1_dimmable_led_light_bulb_level_14_0:
+            state: on
+            transition: 2
+            brightness: 15
+        light.linear_lb60z1_dimmable_led_light_bulb_level_16_0:
+            state: on
+            transition: 2
+            brightness: 15
+        light.linear_lb60z1_dimmable_led_light_bulb_level_15_0:
+            state: on
+            transition: 2
+            brightness: 15
+
+  - name: dad office normal
+    entities:
+        light.linear_lb60z1_dimmable_led_light_bulb_level_8_0:
+            state: on
+            transition: 2
+            brightness: 255
+  - name: dad office dim
+    entities:
+        light.linear_lb60z1_dimmable_led_light_bulb_level_8_0:
+            state: on
+            transition: 2
+            brightness: 25
+  - name: lights out
+    entities:
+        group.all_lights:
+            state: off
+zone:
+  name: Work
+  latitude: 33.638854
+  longitude: -112.17366
+  radius: 2500
+  icon: mdi:ghost
+
+http:
+  api_password: 73fCqwe12
+  server_port: 8123
+  #ssl_certificate: /home/hass/.homeassistant/Kalicki.club.crt
+  #ssl_key: /home/hass/.homeassistant/Kalicki.club.key
+  trusted_networks: 
+    - 10.0.0.0/22
+  use_x_forwarded_for: True
+  
+frontend:
+updater:
+discovery:
+conversation:
+history:
+logbook:
+sun:
+
+
+#
+#
+#  CAMERAS
+#
+#
+camera:
+  - platform: mjpeg
+    mjpeg_url: http://10.0.3.11:8081
+    name: office
+#  - platform: mjpeg
+#    mjpeg_url: http://10.0.3.83:8082
+#  - platform: generic
+#    still_image_url: https://maps.googleapis.com/maps/api/staticmap?center=33.5755023,+-112.290524&zoom=11&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true
+#    limit_refetch_to_url_change: true
+#    name: map
+  - platform: mjpeg
+    mjpeg_url: http://10.0.3.84:80/videostream.cgi?user=admin&pwd=POI098poi*&resolution=32&rate=13
+    name: foscam
+ 
+
+#
+#
+#  SENSORS
+#
+#
+sensor:
+  - platform: darksky
+    api_key: 7de64bee445e2e3a30626892e61e847d
+    monitored_conditions:
+      - precip_probability
+      - temperature
+      - summary
+      - temperature
+      - hourly_summary
+      - temperature_max
+    name: weather
+  - platform: google_travel_time
+    api_key: AIzaSyB_5OobQ4KWiA3erF_7dTecxkltPwsGgL0
+    origin: Avondale, AZ
+    destination: Glendale, AZ 
+    name: Dad Work
+  - platform: bitcoin
+    currency: USD
+    name: btc
+    display_options:
+      - exchangerate
+  - platform: fitbit
+  - platform: iss
+  - platform: speedtest
+    monitored_conditions:
+      - ping
+      - download
+      - upload    
+zwave:
+  usb_path: /dev/zwave
+  config_path: /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config
+  polling_interval: 30000
+  autoheal: false
+#  customize:
+#    light.linear_lb60z1_dimmable_led_light_bulb_level_10_0:
+#      polling_intensity: 1
+#    light.linear_lb60z1_dimmable_led_light_bulb_level_9_0:
+#      polling_intensity: 1
+#    light.linear_lb60z1_dimmable_led_light_bulb_level_8_0:
+#      polling_intensity: 1
+
+notify:
+  - name: NOTIFIER_NAME
+    platform: html5
+    gcm_api_key: 'AAAAUD-zYKI:APA91bEdXuMxGToxQmWZIcispV6tqRv9zEIbMw28VeSWb4cBJ8VThrsIMs6Y1RPfhoGVdWcdpsEt3oWzcqF0IPY6uTPHp1h9OpdsZom7UW7JHkvWUure9PbRriAm4Guf1zKtHGXf01LFBNlDkALXOTckTLXvI_-OFQ'
+    gcm_sender_id: '344666103970'
+
+
+device_tracker:
+  - platform: tomato
+    host: 10.0.0.1
+    username: admin
+    password: POI098poi*
+    http_id: TID90fdedd2bbc5c429  
+
+#
+#
+#   AUTOMATION
+#
+#
+automation:
+- alias: NightLights
+  trigger:
+    platform: time
+    after: '18:25:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.bathtime
+    - delay: 0:01
+    - service: scene.turn_on
+      entity_id: scene.kitchen_dim
+   
+- alias: Bedtime
+  trigger:
+    platform: time
+    after: '19:10:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.lights_out
+
+#- alias: Heal Z-Wave Network
+#  trigger:
+#    platform: time
+#    after: '2:31:00'
+#  action:
+#    service: zwave.heal_network
+- alias: 'Start Flashing Lights'
+  trigger:
+    platform: state
+    entity_id: input_boolean.flash_office
+    state: 'on'     
+  action:
+    service: script.turn_on
+    entity_id: script.light_flash
+
+- alias: 'Stop Flashing Lights'
+  trigger:
+    platform: state
+    entity_id: input_boolean.flash_office
+    state: 'off'     
+  action:
+   service: script.turn_on
+   entity_id: script.light_flash_cancel
+- alias: 'Flash Dads Office'
+  trigger:
+    platform: state
+    entity_id: input_boolean.office_flash
+    state: 'on'
+  action:
+   service: script.turn_on
+   entity_id: script.dad_flash
+
+switch:
+  platform: command_line
+  switches:
+    arest_pin_four:
+      command_on: "/usr/bin/curl -X GET http://10.0.0.74/irTVpwr"
+      command_off: "/usr/bin/curl -X GET http://10.0.0.74/irTVpwr"
+      friendly_name: Kitchen TV
+ 
+
+panel_iframe:
+  router:
+    title: 'Router'
+    url: 'http://10.0.0.1'
+
+#
+#
+#   GROUPS
+#
+#
+
+group:
+  default_view:
+    view: yes
+    entities:
+      - group.lights
+      - group.family
+      - group.security
+      - group.plex
+      - group.info
+      - media_player.hifihome
+      - group.internets
+      - group.schedule
+  plex:
+    name: Plex
+    view: no
+    entities:
+      - media_player._home_un60ku6300
+  lights:
+    name: Lights
+    view: no
+    entities:
+      - switch.arest_pin_four
+      - light.linear_lb60z1_dimmable_led_light_bulb_level_14_0
+      - light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      - light.linear_lb60z1_dimmable_led_light_bulb_level_10_0
+      - light.linear_lb60z1_dimmable_led_light_bulb_level_15_0
+      - light.linear_lb60z1_dimmable_led_light_bulb_level_18_0
+      - automation.flash_dads_office
+      - script.jarvis
+      - script.radio
+      - script.weatherz
+      - script.bathtime
+      - scene.kitchen_dim
+      - scene.kitchen_normal
+  security:
+    name: Security
+    view: no
+    entities:
+      - binary_sensor.garage_sensor_13_0
+      - camera.foscam
+      - camera.office
+      - camera.map
+  family:
+    name: Family
+    view: no
+    entities:
+      - device_tracker.android57f99f2253c8d628
+      - device_tracker.androide9ae7f8628e9c917
+  info:
+    name: Info
+    view: no
+    entities:
+      - sensor.dad_work   
+      - sensor.exchange_rate_1_btc
+      - sensor.weather_temperature
+      - input_boolean.flash_office
+      - sensor.steps
+      - sensor.iss_visible
+  internets:
+    name: Internets
+    view: no
+    entities:
+      - sensor.speedtest_ping
+      - sensor.speedtest_upload
+      - sensor.speedtest_download
+  schedule:
+    name: Schedule
+    view: no
+    entities:
+      - automation.bedtime
+      - automation.nightlights
+
+input_boolean:
+  flash_office:
+    name: Flash Office
+    icon: mdi:pine-tree
+    initial: off
+  office_flash:
+    name: Office Flash
+    icon: mdi:pine-tree
+    initial: off
+
+#
+#
+#  MEDIA PLAYER
+#
+#
+media_player:
+  - platform: cast
+
+#
+#
+#  SCRIPTS
+#
+#
+script:
+# START FLASH  
+  light_flash:
+    alias: Light flash on
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      - delay:
+#### time for flash light on
+          seconds: 3
+      - service: homeassistant.turn_off
+        data:
+          entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      - service: script.turn_on
+        data:
+          entity_id: script.light_loop
+# LOOP BACK TO START FLASH AGAIN         
+  light_loop:
+    alias: Light flash loop
+    sequence:
+      - delay:
+#### time for flash light off
+          seconds: 3
+      - service: script.turn_on
+        data:
+          entity_id: script.light_flash
+# CANCEL FLASHING 
+  light_flash_cancel:
+    alias: Cancel Light Flash
+    sequence:
+      -  service: script.turn_off
+         data:
+           entity_id: script.light_flash
+      -  service: script.turn_off
+         data:
+           entity_id: script.light_loop
+
+#
+#
+#  SCRIPT FLASH DADS OFFICE
+#
+#
+  dad_flash:
+    alias: dad flash
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      - delay:
+#### time for flash light on
+          seconds: 3
+      - service: homeassistant.turn_off
+        data:
+          entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      - delay:
+          seconds: 3
+      - service: homeassistant.turn_on
+        data:
+          entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      - delay:
+#### time for flash light on
+          seconds: 3
+      - service: homeassistant.turn_off
+        data:
+          entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      - delay:
+          seconds: 3
+      - service: homeassistant.turn_off
+        data:
+          entity_id: input_boolean.office_flash 
+#
+#
+#  SCRIPT JARVIS TALK
+#
+#
+  jarvis:
+    alias: jarvis
+    sequence:
+      - service: tts.google_say
+        data:
+          entity_id: media_player.hifihome
+          message: Well hello Lloyd its finally nice to meet you how can I help
+#
+#
+# SCRIPT RADIO STATION
+#
+#
+
+  radio:
+    alias: radio
+    sequence:
+      - alias: Start stream
+        service: media_player.play_media
+        data:
+          entity_id: media_player.cc_audio
+          media_content_id: http://vip-icecast.538.lw.triple-it.nl:80/RADIO538_MP3
+          media_content_type: 'audio/mp4'
+#
+#
+#  SCRIPT WEATHER
+#
+#
+  weatherz:
+    alias: Weather
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: media_player.hifihome
+          message: >
+            {% if now().strftime("%H")|int < 12 %}
+            Good morning.
+            {% elif now().strftime("%H")|int < 18 %}
+            Good afternoon.
+            {% else %}
+            Good evening.
+            {% endif %}
+            It's currently {{states.sensor.weather_summary.state}} and {{states.sensor.weather_temperature.state|round}} degrees in Avondale. Today will be {{states.sensor.weather_hourly_summary.state|replace(".", "")}}, with a high of {{states.sensor.weather_daily_high_temperature.state|round}} degrees.
+ 
+  bathtime:
+    alias: bathtime
+    sequence:
+      - service: tts.google_say
+        data_template:
+          entity_id: media_player.hifihome
+          message: >
+            Attention Attention Attention... It is now bathtime for the kids...Lloyd and Stephen to the bath please. I repeat, Lloyd and Stephen to the bath. Please proceed down the hallway to the kids bathtub. Climb in the tub and wait patiently, an adult will be along shortly to bathe you. At this time the lights will dim shortly. Have a gooood night!
+
+
