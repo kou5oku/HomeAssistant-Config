@@ -29,8 +29,6 @@ conversation:
 history:
 logbook:
 sun:
-sensor:
-  platform: yr
 tts:
   platform: google
   cache: true
@@ -45,7 +43,13 @@ zone:
 zwave:
   usb_path: /dev/ttyACM0
   autoheal: false
-
+  new_entity_ids: true
+device_tracker:
+  - platform: tomato
+    host: !secret tracker_host
+    username: !secret tracker_admin
+    password: !secret tracker_password
+    http_id: !secret tracker_id
 ########################################
 #
 #   Broadcom IR blaster
@@ -92,6 +96,6 @@ switch:
         
      
 
-
+sensor: !include sensors.yaml
 group: !include groups.yaml
 automation: !include automations.yaml

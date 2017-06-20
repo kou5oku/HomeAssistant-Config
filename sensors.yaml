@@ -1,0 +1,36 @@
+- platform: yr
+- platform: darksky
+  api_key: 7de64bee445e2e3a30626892e61e847d
+  monitored_conditions:
+    - precip_probability
+    - temperature
+    - summary
+    - temperature
+    - hourly_summary
+    - temperature_max
+  name: weather
+- platform: google_travel_time
+  api_key: !secret google_api_key
+  origin: !secret origin
+  destination: !secret destination 
+  name: Dad Work
+- platform: bitcoin
+  currency: USD
+  name: btc
+  display_options:
+    - exchangerate
+- platform: fitbit
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload  
+- platform: template
+  sensors:
+     gd:
+      friendly_name: "Garage"
+      value_template: "{% if  states.binary_sensor.garage_sensor.state == 'on' %}opened{% elif states.binary_sensor.garage_sensor.state_22_0.state == 'off' %}closed{% endif %}"  
+     garageexit:
+      friendly_name: "Garage Exit"
+      value_template: "{% if  states.binary_sensor.garage_exit_sensor.state == 'on' %}opened{% elif states.binary_sensor.garage_exit_sensor.state == 'off' %}closed{% endif %}"
+        
