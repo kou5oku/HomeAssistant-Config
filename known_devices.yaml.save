@@ -1,0 +1,179 @@
+
+amazon994bad87e:
+  hide_if_away: false
+  icon:
+  mac: FC:A6:67:39:BA:30
+  name: amazon-994bad87e
+  picture:
+  track: false
+  vendor: unknown
+
+androidc858ecfcac34c6e:
+  hide_if_away: false
+  icon:
+  mac: AC:37:43:4A:F2:D2
+  name: android-c858ecfcac34c6e  picture:
+  track: true
+  vendor: unknown
+
+a434d95d381a:
+  hide_if_away: false
+  icon:
+  mac: A4:34:D9:5D:38:1A
+  name: a434d95d381a
+  picture:
+  track: false
+  vendor: unknown
+
+ir:
+  hide_if_away: false
+  icon:
+  mac: 34:EA:34:B2:F0:5F
+  name: IR
+  picture:
+  track: false
+  vendor: unknown
+
+chromecastaudio:
+  hide_if_away: false
+  icon:
+  mac: 54:60:09:F4:14:8C
+  name: Chromecast-Audio
+  picture:
+  track: false
+  vendor: unknown
+
+foscamwifi:
+  hide_if_away: false
+  icon:
+  mac: 00:12:7B:5B:FC:55
+  name: foscam-wifi
+  picture:
+  track: false
+  vendor: unknown
+
+epson405197:
+  hide_if_away: false
+  icon:
+  mac: AC:18:26:40:51:97
+  name: EPSON405197
+  picture:
+  track: false
+  vendor: unknown
+
+micam1:
+  hide_if_away: false
+  icon:
+  mac: 34:CE:00:D8:09:37
+  name: micam1
+  picture:
+  track: false
+  vendor: unknown
+
+micam2:
+  hide_if_away: false
+  icon:
+  mac: 34:CE:00:D5:04:C7
+  name: micam2
+  picture:
+  track: false
+  vendor: unknown
+
+ec0ec405ce51:
+  hide_if_away: false
+  icon:
+  mac: EC:0E:C4:05:CE:51
+  name: ec0ec405ce51
+  picture:
+  track: false
+  vendor: unknown
+
+tv:
+  hide_if_away: false
+  icon:
+  mac: C0:97:27:01:9A:D4
+  name: TV
+  picture:
+  track: false
+  vendor: unknown
+
+android2deed1393ac0b144:
+  hide_if_away: false
+  icon:
+  mac: 90:B6:86:28:31:96
+  name: android-2deed1393ac0b144
+  picture:
+  track: true
+  vendor: unknown
+
+android57f99f2253c8d628:
+  hide_if_away: false
+  icon:
+  mac: AC:37:43:4A:BF:95
+  name: Dad
+  picture:
+  track: true
+  vendor: unknown
+
+7cbb8aad5e2e:
+  hide_if_away: false
+  icon:
+  mac: 7C:BB:8A:AD:5E:2E
+  name: 7cbb8aad5e2e
+  picture:
+  track: true
+  vendor: unknown
+
+directvhr44b1a1c25d:
+  hide_if_away: false
+  icon:
+  mac: F8:04:2E:12:99:CC
+  name: DIRECTV-HR44-B1A1C25D
+  picture:
+  track: true
+  vendor: unknown
+
+jamesstsiphone2:
+  hide_if_away: false
+  icon:
+  mac: 4C:57:CA:72:BB:EF
+  name: JamesStsiPhone2
+  picture:
+  track: true
+  vendor: unknown
+
+jamessmbp:
+  hide_if_away: false
+  icon:
+  mac: 6C:40:08:A1:3E:9C
+  name: Jamess-MBP
+  picture:
+  track: true
+  vendor: unknown
+
+b4d5bd038009:
+  hide_if_away: false
+  icon:
+  mac: B4:D5:BD:03:80:09
+  name: b4d5bd038009
+  picture:
+  track: true
+  vendor: unknown
+
+android759f1a55613d3026:
+  hide_if_away: false
+  icon:
+  mac: A8:A6:68:BA:03:36
+  name: android-759f1a55613d3026
+  picture:
+  track: true
+  vendor: unknown
+
+6038e0585325:
+  hide_if_away: false
+  icon:
+  mac: 60:38:E0:58:53:25
+  name: 6038e0585325
+  picture:
+  track: true
+  vendor: unknown

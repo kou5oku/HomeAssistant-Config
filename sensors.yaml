@@ -19,7 +19,6 @@
   name: btc
   display_options:
     - exchangerate
-- platform: fitbit
 - platform: speedtest
   monitored_conditions:
     - ping
@@ -29,8 +28,10 @@
   sensors:
      gd:
       friendly_name: "Garage"
-      value_template: "{% if  states.binary_sensor.garage_sensor.state == 'on' %}opened{% elif states.binary_sensor.garage_sensor.state_22_0.state == 'off' %}closed{% endif %}"  
+      value_template: "{% if  states.binary_sensor.garage_sensor_22_0.state == 'on' %}opened{% elif states.binary_sensor.garage_sensor_22_0.state == 'off' %}closed{% endif %}"  
+      icon_template: "{% if  states.binary_sensor.garage_sensor_22_0.state == 'on' %}mdi:alert-octagram{% elif states.binary_sensor.garage_sensor_22_0.state == 'off' %}mdi:checkbox-marked{% endif %}" 
      garageexit:
       friendly_name: "Garage Exit"
-      value_template: "{% if  states.binary_sensor.garage_exit_sensor.state == 'on' %}opened{% elif states.binary_sensor.garage_exit_sensor.state == 'off' %}closed{% endif %}"
+      value_template: "{% if  states.binary_sensor.garage_exit_sensor_13_0.state == 'on' %}opened{% elif states.binary_sensor.garage_exit_sensor_13_0.state == 'off' %}closed{% endif %}"
+      icon_template: "{% if  states.binary_sensor.garage_exit_sensor_13_0.state == 'on' %}mdi:alert-octagram{% elif states.binary_sensor.garage_exit_sensor_13_0.state == 'off' %}mdi:checkbox-marked{% endif %}"
         

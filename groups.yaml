@@ -20,14 +20,13 @@ lights:
   name: Lights
   view: no
   entities:
-    - light.bedroom_light_level
-    - light.kitchen_light_level
-    - light.laundry_light_level
-    - light.livingroom_light_level
-    - light.office_light_level
+    - light.bedroom_light_level_21_0
+    - light.kitchen_light_level_20_0
+    - light.laundry_light_level_15_0
+    - light.livingroom_light_level_23_0
+    - light.office_light_level_8_0
 control:
   name: LED Strip
-  control: hidden
   view: no
   entities:
     - switch.blue_lights 
@@ -37,11 +36,8 @@ control:
     - switch.pink_lights  
     - switch.red_lights 
     - switch.white_lights 
-televisions:
-  name: Televisions
-  view: no
-  entities:
     - switch.kitchen_tv
+    - switch.officeplug
 security:
   name: Security
   view: no
@@ -53,7 +49,7 @@ family:
   view: no
   entities:
     - device_tracker.android57f99f2253c8d628
-    - device_tracker.androide9ae7f8628e9c917
+    - device_tracker.androidc858ecfcac34c6e
 info:
   name: Info
   view: no

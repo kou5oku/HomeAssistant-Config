@@ -6,14 +6,17 @@ homeassistant:
   unit_system: imperial
   time_zone: America/Phoenix
 frontend:
+discovery:
 config:
 http:
   api_password: !secret http_password
   server_port: 8123
   #ssl_certificate: /home/hass/.homeassistant/Kalicki.club.crt
   #ssl_key: /home/hass/.homeassistant/Kalicki.club.key
-  trusted_networks: !secret trusted_networks
-  use_x_forwarded_for: True
+  trusted_networks: 
+    - !secret trusted_network1
+    - !secret trusted_network2
+    - !secret trusted_network3
 panel_iframe:
   router:
     title: 'Router'
@@ -23,8 +26,11 @@ panel_iframe:
     title: 'Security'
     url: !secret security_url
     icon: mdi:security-home
+
+wemo:
+  static:
+    - 10.0.0.34
 updater:
-discovery:
 conversation:
 history:
 logbook:
@@ -43,7 +49,7 @@ zone:
 zwave:
   usb_path: /dev/ttyACM0
   autoheal: false
-  new_entity_ids: true
+  #new_entity_ids: true
 device_tracker:
   - platform: tomato
     host: !secret tracker_host
