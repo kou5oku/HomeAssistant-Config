@@ -1,1 +1,46 @@
-[]
+- action:
+  - alias: Notify
+    data:
+      message: DAD is at work
+      title: TEST
+    service: persistent_notification.create
+  - alias: WeMo Switch
+    data:
+      entity_id: switch.officeplug
+    service: switch.turn_on
+  alias: Dad Work
+  id: '1500332124237'
+  trigger:
+  - entity_id: device_tracker.android57f99f2253c8d628
+    platform: state
+    to: work
+- action:
+  - alias: Set Volume
+    data:
+      entity_id: media_player.hifihome
+      volume_level: '0.6'
+    service: media_player.set_volume
+  - alias: Speak
+    data:
+      entity_id: media_player.hifihome
+      message: Good News Everyone! Dad is in his dadaru and is headed home
+    service: tts.google_say
+  alias: Dad Dadaru
+  id: '1500332845501'
+  trigger:
+  - entity_id: device_tracker.android57f99f2253c8d628
+    platform: state
+    to: dadaru
+- action:
+  - alias: dads home
+    data:
+      device_id: media_player.hifihome
+      message: dad is home
+    service: tts.google_say
+  alias: Dad Home
+  id: '1500340254076'
+  trigger:
+  - entity_id: device_tracker.android57f99f2253c8d628
+    from: dadaru
+    platform: state
+    to: home

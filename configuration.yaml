@@ -56,6 +56,16 @@ device_tracker:
     username: !secret tracker_admin
     password: !secret tracker_password
     http_id: !secret tracker_id
+
+notify:
+  - name: push_dad
+    platform: pushover
+    api_key: !secret pushover_api
+    user_key: !secret pushover_user
+
+
+#  binary_sensor.garage_sensor_22_0
+
 ########################################
 #
 #   Broadcom IR blaster
@@ -105,3 +115,4 @@ switch:
 sensor: !include sensors.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
+alert: !include alert.yaml
