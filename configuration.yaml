@@ -27,6 +27,12 @@ homeassistant:
     switch.officeplug:
       friendly_name: Office Fan
       icon: mdi:fan
+    sensor.us_air_quality_index:
+      friendly_name: Air Quality
+      icon: mdi:speedometer
+    sensor.us_air_pollution_level:
+      friendly_name: Pollution Level
+      icon: mdi:speedometer
 frontend:
   themes:
     blue:

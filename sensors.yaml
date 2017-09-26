@@ -23,7 +23,6 @@
   api_key: !secret airvisual_api
   monitored_conditions:
     - us
-    - cn
 - platform: speedtest
   monitored_conditions:
     - ping
