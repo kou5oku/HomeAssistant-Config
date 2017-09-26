@@ -20,24 +20,20 @@ lights:
   name: Lights
   view: no
   entities:
-    - light.bedroom_light_level_21_0
-    - light.kitchen_light_level_20_0
-    - light.laundry_light_level_15_0
-    - light.livingroom_light_level_23_0
-    - light.office_light_level_8_0
+    - light.bedroom_light_level
+    - light.kitchen_light_level
+    - light.laundry_light_level
+    - light.livingroom_light_level
+    - light.office_light_level
 control:
   name: LED Strip
   view: no
   entities:
-    - switch.blue_lights 
-    - switch.fade_colors  
-    - switch.green_lights
-    - switch.led_strip 
-    - switch.pink_lights  
-    - switch.red_lights 
-    - switch.white_lights 
+    - switch.cabinet_lights 
     - switch.kitchen_tv
+    - switch.spooky_lamp
     - switch.officeplug
+    - switch.big_tv
 security:
   name: Security
   view: no
@@ -68,4 +64,29 @@ schedule:
   name: Schedule
   view: no
   entities:
-
+lighting:
+  name: Lighting
+  view: yes
+  entities:
+    - group.lightcontrol
+lightcontrol:
+  name: Light Control
+  view: no
+  entities:
+    - switch.blue_lights 
+    - switch.fade_colors  
+    - switch.green_lights
+    - switch.pink_lights  
+    - switch.red_lights 
+    - switch.white_lights 
+mail:
+  name: Mail
+  view: yes
+  entities:
+    - group.mailbox
+    - sensor.usps_mail
+mailbox:
+  name: Mailbox
+  view: no
+  entities:
+    - camera.usps_mail

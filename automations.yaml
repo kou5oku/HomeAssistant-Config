@@ -20,11 +20,12 @@
       entity_id: media_player.hifihome
       volume_level: '0.6'
     service: media_player.set_volume
-  - alias: Speak
+  - alias: ''
     data:
       entity_id: media_player.hifihome
-      message: Good News Everyone! Dad is in his dadaru and is headed home
-    service: tts.google_say
+      media_content_id: http://10.0.3.10:8123/local/dadhome.mp3
+      media_content_type: MUSIC
+    service: media_player.play_media
   alias: Dad Dadaru
   id: '1500332845501'
   trigger:
@@ -44,3 +45,23 @@
     from: dadaru
     platform: state
     to: home
+- action:
+  - data:
+      entity_id: media_player.hifihome
+      volume_level: '0.6'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.hifihome
+      media_content_id: http://10.0.3.10:8123/local/BSB.mp3
+      media_content_type: MUSIC
+    service: media_player.play_media
+  alias: Mom is home
+  id: '1500570800450'
+  trigger:
+  - entity_id: device_tracker.androidc858ecfcac34c6e
+    platform: state
+    to: home
+  condition:
+  - after: '10:00'
+    before: '19:00'
+    condition: time

@@ -8,3 +8,13 @@ garage_door:
    skip_first: True
    notifiers:
      - push_dad
+fan:
+   name: Fan is on
+   done_message: Fan is off now
+   entity_id: switch.officeplug
+   state: 'on'
+   repeat: 60
+   can_acknowledge: True
+   skip_first: True
+   notifiers:
+     - push_dad
