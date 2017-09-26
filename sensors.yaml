@@ -24,8 +24,6 @@
   monitored_conditions:
     - us
     - cn
-  city: west-phoenix
-  state: 
 - platform: speedtest
   monitored_conditions:
     - ping
@@ -41,5 +39,3 @@
       friendly_name: "Garage Exit"
       value_template: "{% if  states.binary_sensor.garage_exit_sensor.state == 'on' %}opened{% elif states.binary_sensor.garage_exit_sensor.state == 'off' %}closed{% endif %}"
       icon_template: "{% if  states.binary_sensor.garage_exit_sensor.state == 'on' %}mdi:alert-octagram{% elif states.binary_sensor.garage_exit_sensor.state == 'off' %}mdi:checkbox-marked{% endif %}"
-        
-https://airvisual.com/usa/arizona/phoenix/west-phoenix
