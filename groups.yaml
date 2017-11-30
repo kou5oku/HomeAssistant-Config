@@ -21,9 +21,9 @@ lights:
   view: no
   entities:
     - light.bedroom_light_level
-    - light.kitchen_light_level
-    - light.laundry_light_level
-    - light.livingroom_light_level
+    - light.kitchen_level
+    - light.laundry_level
+    - light.livingroom_level
     - light.office_light_level
 control:
   name: LED Strip
@@ -32,8 +32,10 @@ control:
     - switch.cabinet_lights 
     - switch.kitchen_tv
     - switch.spooky_lamp
+    - switch.christmas_tree
     - switch.officeplug
     - switch.big_tv
+    - switch.small_lights
 security:
   name: Security
   view: no

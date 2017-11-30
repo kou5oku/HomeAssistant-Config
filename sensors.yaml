@@ -19,6 +19,7 @@
   name: btc
   display_options:
     - exchangerate
+- platform: ring
 - platform: airvisual
   api_key: !secret airvisual_api
   monitored_conditions:

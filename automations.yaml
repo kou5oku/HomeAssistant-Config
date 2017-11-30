@@ -52,7 +52,7 @@
     service: media_player.volume_set
   - data:
       entity_id: media_player.hifihome
-      media_content_id: http://10.0.3.10:8123/local/BSB.mp3
+      media_content_id: http://10.0.3.10:8123/local/jinglebells.mp3
       media_content_type: MUSIC
     service: media_player.play_media
   alias: Mom is home
