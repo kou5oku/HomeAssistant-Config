@@ -24,7 +24,7 @@ lights:
     - light.kitchen_level
     - light.laundry_level
     - light.livingroom_level
-    - light.office_light_level
+    - light.office_Level
 control:
   name: LED Strip
   view: no

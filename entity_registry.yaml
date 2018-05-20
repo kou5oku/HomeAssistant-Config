@@ -1,0 +1,112 @@
+sensor.us_air_pollution_level:
+  name:
+  platform: airvisual
+  unique_id: 33.4716,-112.1948_pollution_level
+sensor.us_main_pollutant:
+  name:
+  platform: airvisual
+  unique_id: 33.4716,-112.1948_main_pollutant
+sensor.us_air_quality_index:
+  name:
+  platform: airvisual
+  unique_id: 33.4716,-112.1948_aqi
+zwave.aeotec_zw090_zstick_gen5_us:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.linear_lb60z1_dimmable_led_light_bulb:
+  name:
+  platform: zwave
+  unique_id: node-29
+light.linear_lb60z1_dimmable_led_light_bulb_level:
+  name:
+  platform: zwave
+  unique_id: 29-72057594529284097
+zwave.linear_lb60z1_dimmable_led_light_bulb_2:
+  name:
+  platform: zwave
+  unique_id: node-8
+light.linear_lb60z1_dimmable_led_light_bulb_level_2:
+  name:
+  platform: zwave
+  unique_id: 8-72057594176962561
+zwave.linear_lb60z1_dimmable_led_light_bulb_3:
+  name:
+  platform: zwave
+  unique_id: node-24
+light.linear_lb60z1_dimmable_led_light_bulb_level_3:
+  name:
+  platform: zwave
+  unique_id: 24-72057594445398017
+zwave.linear_lb60z1_dimmable_led_light_bulb_4:
+  name:
+  platform: zwave
+  unique_id: node-28
+light.linear_lb60z1_dimmable_led_light_bulb_level_4:
+  name:
+  platform: zwave
+  unique_id: 28-72057594512506881
+zwave.linear_lb60z1_dimmable_led_light_bulb_5:
+  name:
+  platform: zwave
+  unique_id: node-27
+light.linear_lb60z1_dimmable_led_light_bulb_level_5:
+  name:
+  platform: zwave
+  unique_id: 27-72057594495729665
+zwave.ecolink_tilt_sensor:
+  name:
+  platform: zwave
+  unique_id: node-22
+sensor.ecolink_tilt_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 22-72057594413072417
+sensor.ecolink_tilt_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 22-72057594413072545
+binary_sensor.ecolink_tilt_sensor_sensor:
+  name:
+  platform: zwave
+  unique_id: 22-72057594412007424
+sensor.ecolink_tilt_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 22-72057594413072385
+sensor.ecolink_tilt_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 22-72057594413072401
+zwave.ecolink_doorwindow_sensor:
+  name:
+  platform: zwave
+  unique_id: node-13
+sensor.ecolink_doorwindow_sensor_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 13-72057594262077473
+sensor.ecolink_doorwindow_sensor_burglar:
+  name:
+  platform: zwave
+  unique_id: 13-72057594262077601
+binary_sensor.ecolink_doorwindow_sensor_sensor:
+  name:
+  platform: zwave
+  unique_id: 13-72057594261012480
+sensor.ecolink_doorwindow_sensor_alarm_type:
+  name:
+  platform: zwave
+  unique_id: 13-72057594262077441
+sensor.ecolink_doorwindow_sensor_alarm_level:
+  name:
+  platform: zwave
+  unique_id: 13-72057594262077457
+zwave._:
+  name:
+  platform: zwave
+  unique_id: node-26
+light.level:
+  name:
+  platform: zwave
+  unique_id: 26-72057594478952449
